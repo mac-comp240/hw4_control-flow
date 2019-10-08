@@ -25,7 +25,13 @@ that file carefully.
 The other version of the assembly code his compiled with the -O1 option into the
 file `control.O1_cm_s`. Study the completed version of this file carefully.
 
-## Notes
+# Important Notes
+
+- Put your name in the control.c file.
+
+- There are two if statements in the code that produced the assembly files that you are given. 
+
+- Pay attention to the types of the input parameters (you will have to determine how many there are) and the type of the return value of the function.
 
 <!-- DEPRECATED NOTE
 There is one oddity in this code that needs a small amount of explanation: the
@@ -36,20 +42,10 @@ processor models that did not behave well in this situation.) You can simply
 treat it as a return.
 -->
 
-
-In general you can ignore the *indented* assembly directives that begin with a
+- In general you can ignore the *indented* assembly directives that begin with a
 'dot', such as the `.cfi_XXX` directives and the `.p2align` directive. This
 latter one sometimes gets added by the compiler to ensure that instructions can
 get fetched and decoded efficiently.
 
-You will need to look up and recall what the jump, compare, and test
+- You will need to look up and recall what the jump, compare, and test
 instructions do.
-
-# Important Notes
-
-- Put your name in the control.c file.
-
-- There are two if statements in the code that produced the assembly files that you are given. 
-
-- Pay attention to the types of the input parameters (you will have to determine how many there are) and the type of the return value of the function.
-
