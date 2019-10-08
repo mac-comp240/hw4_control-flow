@@ -1,0 +1,31 @@
+	.file	"control.c"
+	.text
+	.globl	check_val
+	.type	check_val, @function
+check_val:
+.LFB0:
+	.cfi_startproc
+	testq	%rdx, %rdx
+	js	.L3
+	movslq	%edi, %rdi
+	movslq	%esi, %rsi
+	addq	%rdi, %rsi
+	movq	%rsi, %rax
+	salq	$4, %rax
+	subq	%rsi, %rax
+	addq	$24, %rax
+	cmpq	%rdx, %rax
+	jg	.L4
+	rep ret
+.L3:
+	movl	$0, %eax
+	ret
+.L4:
+	movq	%rdx, %rax
+	.p2align 4,,4
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	check_val, .-check_val
+	.ident	"GCC: (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4"
+	.section	.note.GNU-stack,"",@progbits
