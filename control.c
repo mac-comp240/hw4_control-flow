@@ -1,6 +1,7 @@
 /*
- *  Spring 2019 HW 4 if statement control problem
+ * Fall 2019 HW 4 if statement control problem
  *
+ * Name: 
  */
 
-// you complete the function called check_val
+// TODO: Write the function check_val
