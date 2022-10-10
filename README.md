@@ -27,25 +27,16 @@ file `control.O1_cm_s`. Study the completed version of this file carefully.
 
 # Important Notes
 
-- Put your name in the control.c file.
+- Put your name in the `control.c` file.
 
-- There are two if statements in the code that produced the assembly files that you are given. 
+- There are two if statements in the code that produced the assembly files that
+  you are given. 
 
-- Pay attention to the types of the input parameters (you will have to determine how many there are) and the type of the return value of the function.
-
-<!-- DEPRECATED NOTE
-There is one oddity in this code that needs a small amount of explanation: the
-instruction called `rep ret`. Apparently the gcc compiler will create code with
-this type of return when a return is done immediately after a jump. (You could
-look up info about this if you are curious- it is due to just a couple of AMD
-processor models that did not behave well in this situation.) You can simply
-treat it as a return.
--->
+- Pay attention to the types of the input parameters (you will have to determine
+  how many there are) and the type of the return value of the function.
 
 - In general you can ignore the *indented* assembly directives that begin with a
-'dot', such as the `.cfi_XXX` directives and the `.p2align` directive. This
-latter one sometimes gets added by the compiler to ensure that instructions can
-get fetched and decoded efficiently.
+  'dot', such as the `.cfi_XXX` directives.
 
 - You will need to look up and recall what the jump, compare, and test
-instructions do.
+  instructions do.

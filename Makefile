@@ -22,8 +22,8 @@ F64 =-m64    #ensures 64-bit assembly
 all:	control.no_cm_s control.O1_cm_s 
 
 compare:
-	diff -b -B -I '.ident*' -I '.file*' control.no_cm_s completed_control.no_cm_s
-	diff -b -B -I '.ident*' -I '.file*' control.O1_cm_s completed_control.O1_cm_s
+	diff  control.no_cm_s completed_control.no_cm_s
+	diff  control.O1_cm_s completed_control.O1_cm_s
 
 clean:
 	rm -f control.no_cm_s control.O1_cm_s

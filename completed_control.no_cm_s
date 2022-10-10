@@ -1,4 +1,4 @@
-	.file	"soln_control.c"
+	.file	"control.c"
 	.text
 	.globl	check_val
 	.type	check_val, @function
@@ -25,5 +25,5 @@ check_val:
 	.cfi_endproc
 .LFE0:
 	.size	check_val, .-check_val
-	.ident	"GCC: (Ubuntu 8.3.0-6ubuntu1) 8.3.0"
+	.ident	"GCC: (GNU) 8.3.1 20190311 (Red Hat 8.3.1-3)"
 	.section	.note.GNU-stack,"",@progbits
