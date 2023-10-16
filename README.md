@@ -17,13 +17,13 @@ There are copies of the assembly code files with `completed_` in their name for 
 ## 1: Less Optimized Assembly
 
 The first version of the assembly is compiled with the -Og flag into a
-file called `control.no_cm_s`. Study the assembly in the completed version of
+file called `control_optOg.s`. Study the assembly in the completed version of
 that file carefully.
 
 ## 2: Conditional Move Assembly 
 
 The other version of the assembly code his compiled with the -O1 option into the
-file `control.O1_cm_s`. Study the completed version of this file carefully.
+file `control_optO1.s`. Study the completed version of this file carefully.
 
 # Important Notes
 
