@@ -36,12 +36,12 @@ file so that you can make sample calls to the function to check how it works.
 
 ### Starter Files
 
-* `completed_control_opt0g.s`
+* `completed_control_optOg.s`
     - This file contains target assembly code for the base level of optimization,
     with comparisons, jumps, and conditional jumps. It contains code for two separate
     functions. You need to determine C code that would generate this exact assembly
     (**and** the assembly in the next file).
-* `completed_control_opt01.s`
+* `completed_control_optO1.s`
     - This file contains target assembly code for the Level 1 optimization.
     This code was generated from the same starting C code as the previous file:
     you should determine C code that matches **both** these files.
@@ -75,8 +75,8 @@ makes for your C program. First run `make`, and then run `make compare`.
 
 ### Task 1: Understand the assembly code
 
-- Make a copy of the each of the completed assembly files: `completed_control_opt0g.s` and 
-`completed_control_opt01.s`. This is so that you can add notes and comments to the 
+- Make a copy of the each of the completed assembly files: `completed_control_optOg.s` and 
+`completed_control_optO1.s`. This is so that you can add notes and comments to the 
 copy, without changing the original file.
 
 - Determine the number and type of input parameters to each function, and the
