@@ -1,42 +1,104 @@
 # Decoding Control Flow from Assembly
 
-In this assignment, you will create a C function called `check_val` inside the
-file `control.c`. This function takes in some arguments of various types and
-does some arithmetic on them, using a coding style that avoids implicit casting
-and never narrows any variables. It returns a value whose type you will need to
-determine. Your goal is to create a `control.c` that compiles into the assembly
-code provided.
+## Overview
 
-A Makefile has been provided for you. This Makefile will compile `control.c`
-into assembly at two different levels of optimization.
+The goal of this assignment is to practice the mapping between C code and 
+assembly, focusing on code that includes a conditional, nested conditional,
+or loop structure, and may include array accesses. You can easily convert 
+C code into assembly using the `gcc`. Here, you will once again go the other 
+direction: decode assembly code for a function and write the C code that generates
+**identical assembly!**
+
+You will create a C code file that contains nothing other than two function
+definitions. **While not required, you _may_** create an additional main program code
+file so that you can make sample calls to the function to check how it works.
 
 
-There are copies of the assembly code files with `completed_` in their name for reference. 
+### Rubric
 
+* Overall (2 pts)
+    - The `control.c` file contains two function definitions, no include statements,
+    no main function; it does include a descriptive comment at the top with your name in it.
 
-## 1: Less Optimized Assembly
+* `check_val` (20 pts)
+    - Correct function name, correct number and type of input parameters and return value
+    - Correct types for local variables
+    - Correct control structures (conditionals and loops, nested or not, array accesses)
+    - Correct arithmetic calculations
+    - Explicit casting if needed
 
-The first version of the assembly is compiled with the -Og flag into a
-file called `control_optOg.s`. Study the assembly in the completed version of
-that file carefully.
+* `sum_nums` (14 points)
+   - Correct function name, correct number and type of input parameters and return value
+    - Correct types for local variables
+    - Correct control structures (conditionals and loops, nested or not, array accesses)
+    - Correct arithmetic calculations
+    - Explicit casting if needed
 
-## 2: Conditional Move Assembly 
+### Starter Files
 
-The other version of the assembly code his compiled with the -O1 option into the
-file `control_optO1.s`. Study the completed version of this file carefully.
+* `completed_control_opt0g.s`
+    - This file contains target assembly code for the base level of optimization,
+    with comparisons, jumps, and conditional jumps. It contains code for two separate
+    functions. You need to determine C code that would generate this exact assembly
+    (**and** the assembly in the next file).
+* `completed_control_opt01.s`
+    - This file contains target assembly code for the Level 1 optimization.
+    This code was generated from the same starting C code as the previous file:
+    you should determine C code that matches **both** these files.
+* `Makefile`
+    - This makefile contains targets for generating assembly code for two
+    optimization levels at the same time, based on your definition of the file 
+    `control.c`. It implements `make compare` just like the previous assignment, which
+    will check both the files above against the two new `.s` files it creates.
 
-# Important Notes
+### Execution
 
-- Put your name in the `control.c` file.
+As always, the graders should be able to build, check, and clean your code:
 
-- There are two if statements in the code that produced the assembly files that
-  you are given. 
+```
+make clean
+make
+make compare
+```
 
-- Pay attention to the types of the input parameters (you will have to determine
-  how many there are) and the type of the return value of the function.
+The last command should, ideally, print **nothing**!
 
-- In general you can ignore the *indented* assembly directives that begin with a
-  'dot', such as the `.cfi_XXX` directives.
+### Checking your work
 
-- You will need to look up and recall what the jump, compare, and test
-  instructions do.
+The `make compare` command works just as on the previous assignment. It will use
+the `diff` shell program to compare the provided assembly to what the compiler
+makes for your C program. First run `make`, and then run `make compare`. 
+
+(See homework 3 for more discussion of how `diff` works, or look up its documentation!)
+
+## Tasks to Complete
+
+### Task 1: Understand the assembly code
+
+- Make a copy of the each of the completed assembly files: `completed_control_opt0g.s` and 
+`completed_control_opt01.s`. This is so that you can add notes and comments to the 
+copy, without changing the original file.
+
+- Determine the number and type of input parameters to each function, and the
+type of the return value. For input parameters: look for registers that are **used** without
+first being given a value.
+- For each line, determine the effect of the line, tracking data moving around, and 
+write the result in pseudocode
+- This code may use `lea` to compute arithmetic, **or** to compute a memory address
+
+You will create a C code file that contains nothing other than two function 
+definitions. **While not required, you _may_** create an additional main program code
+file so that you can make sample calls to the three functions to check what they do.
+
+### Task 2: Write the C functions
+
+- Create the C functions, making sure to use the correct type and number of input
+parameters and the correct return type
+- Look at the steps in the assembly language, and determine a condensed number of steps
+for your C code
+    - Sometimes the assembly code may cast between types (seen as a combination of different
+    register sizes in a single instruction). Use **explicit casting** in your C code
+    when this happens.
+    - Be prepared to try different ways to condense the code if needed
+    - Use reasonable variable names and good coding style throughout!
+

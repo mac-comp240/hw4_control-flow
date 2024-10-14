@@ -5,6 +5,7 @@
 check_val:
 .LFB0:
 	.cfi_startproc
+	endbr64
 	testl	%edx, %edx
 	js	.L3
 	movswl	%di, %edi
@@ -25,5 +26,40 @@ check_val:
 	.cfi_endproc
 .LFE0:
 	.size	check_val, .-check_val
-	.ident	"GCC: (GNU) 8.3.1 20190311 (Red Hat 8.3.1-3)"
+	.globl	sum_nums
+	.type	sum_nums, @function
+sum_nums:
+.LFB1:
+	.cfi_startproc
+	endbr64
+	movl	$0, %eax
+	jmp	.L6
+.L7:
+	movslq	%esi, %rcx
+	addl	(%rdi,%rcx,4), %eax
+	addl	$1, %esi
+.L6:
+	cmpl	%edx, %esi
+	jle	.L7
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	sum_nums, .-sum_nums
+	.ident	"GCC: (Ubuntu 13.2.0-23ubuntu4) 13.2.0"
 	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	1f - 0f
+	.long	4f - 1f
+	.long	5
+0:
+	.string	"GNU"
+1:
+	.align 8
+	.long	0xc0000002
+	.long	3f - 2f
+2:
+	.long	0x3
+3:
+	.align 8
+4:
