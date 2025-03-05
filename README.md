@@ -101,7 +101,6 @@ for your C code
     when this happens.
     - Be prepared to try different ways to condense the code if needed
     - Use reasonable variable names and good coding style throughout!
-    - 
 
 ## Submission
 
